@@ -19,7 +19,6 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from Views.HomeView import HomeView
 from Models.Alumno.views import FormularioAlumnoView
 urlpatterns = [
-     path('admin/', admin.site.urls),
     path('', HomeView.home, name='home'),
     path('pagina/', HomeView.pagina1, name='pagina1'),
     path('pagina2/<int:parametro1>',HomeView.pagina2, name='pagina2'),
