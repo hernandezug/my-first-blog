@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from Views.HomeView import HomeView
 from Models.Alumno.views import FormularioAlumnoView
 urlpatterns = [
+     path('admin/', admin.site.urls),
     path('', HomeView.home, name='home'),
     path('pagina/', HomeView.pagina1, name='pagina1'),
     path('pagina2/<int:parametro1>',HomeView.pagina2, name='pagina2'),
@@ -26,3 +28,5 @@ urlpatterns = [
     path('registrarAlumno/', FormularioAlumnoView.index, name='registrarAlumno'),
     path('guardarAlumno/', FormularioAlumnoView.procesar_formulario, name='guardarAlumno')
 ]
+
+urlpatterns += staticfiles_urlpatterns()
